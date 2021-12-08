@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                 TimestampMillisecondsFormatter()
             ),
             CoroutineScope(
-                Dispatchers.Main
+                Dispatchers.Default
                         + SupervisorJob()
             )
         ).create(StopWatchViewModel::class.java)
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                 TimestampMillisecondsFormatter()
             ),
             CoroutineScope(
-                Dispatchers.Main
+                Dispatchers.Default
                         + SupervisorJob()
             )
         ).create(StopWatchViewModel::class.java)

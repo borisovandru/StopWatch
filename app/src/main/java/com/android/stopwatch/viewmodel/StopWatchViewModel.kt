@@ -16,11 +16,12 @@ class StopWatchViewModel(
     val ticker: StateFlow<String> = mutableTicker
 
     fun start() {
-        if (job == null) startJob()
+        startJob()
         stopwatchStateHolder.start()
     }
 
     private fun startJob() {
+        job?.cancel()
         job = scope.launch {
             while (isActive) {
                 mutableTicker.value = stopwatchStateHolder.getStringTimeRepresentation()
